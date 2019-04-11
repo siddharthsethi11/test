@@ -1,0 +1,5 @@
+{"records": [{
+    "jsonSchemaLocation": "/GlobeTelecom/Service Descriptors/globetelecom.TopUpRecharge-TopUpRecharge.json",
+    "conversionType": "linked",
+    "xsdSchemaTargetNamespace": "http://www.example.com/namespaces/tns/1554705995073"
+}]}

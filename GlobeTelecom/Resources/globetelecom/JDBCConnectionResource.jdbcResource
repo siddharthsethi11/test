@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_g1K6QVn0EemGjffOrByCUg" name="globetelecom.JDBCConnectionResource" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_g1gRcFn0EemGjffOrByCUg" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_g1gRcVn0EemGjffOrByCUg" username="postgres" password="#!Ja/e7vSV+KR0xWu6llgHMUaL2hQvOgTK3LP1ZFt2Hqo=">
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_g1iGoFn0EemGjffOrByCUg" jdbcDriver="tibcosoftwareinc.jdbc.postgresql.PostgreSQLDriver" dbURL="jdbc:tibcosoftwareinc:postgresql://localhost:5432;DatabaseName=postgres"/>
+  </jndi:configuration>
+</jndi:namedResource>
