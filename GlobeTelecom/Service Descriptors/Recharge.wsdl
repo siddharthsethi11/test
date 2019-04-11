@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:extns="http://www.example.com/namespaces/tns/1554705995073" xmlns:tns="http://www.example.org/wsdl/1554722596829" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Recharge"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 					
+					xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/
+                      http://schemas.xmlsoap.org/wsdl/
+                      http://www.w3.org/2001/XMLSchema
+                      https://www.w3.org/2001/XMLSchema.xsd"
+ targetNamespace="http://www.example.org/wsdl/1554722596829">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.example.org/wsdl/1554722596829">
+            <xsd:import namespace="http://www.example.com/namespaces/tns/1554705995073" schemaLocation="../Schemas/TopUpRechargeSchema.xsd"></xsd:import>
+            <xsd:element name="operationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="extns:TopUpRecharge"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="operationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element  ref="extns:TopUpRechargeResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="operationRequest">
+    <wsdl:part name="parameters" element="tns:operationRequest" />
+  </wsdl:message>
+  <wsdl:message name="operationResponse">
+    <wsdl:part element="tns:operationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Process">
+    <wsdl:operation name="operation">
+      <wsdl:input message="tns:operationRequest" name="operationInput"/>
+      <wsdl:output message="tns:operationResponse" name="operationOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

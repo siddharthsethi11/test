@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://esbdemo.tech/soap/ESB_Demo_Soap_" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 					
+					xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/
+                      http://schemas.xmlsoap.org/wsdl/
+                      http://www.w3.org/2001/XMLSchema
+                      https://www.w3.org/2001/XMLSchema.xsd" targetNamespace="http://esbdemo.tech/soap/ESB_Demo_Soap_">
+<types>
+<xsd:schema targetNamespace="http://esbdemo.tech/soap/ESB_Demo_Soap_">
+</xsd:schema>
+</types>
+<message name="GetSubIDRequest">
+  <part name="MSISDN" type="xsd:string" /></message>
+<message name="GetSubIDResponse">
+  <part name="SubscriberID" type="xsd:string" /></message>
+<message name="RegularRechargeRequest">
+  <part name="SubscriberID" type="xsd:string" />
+  <part name="Amount" type="xsd:float" /></message>
+<message name="RegularRechargeResponse">
+  <part name="TransactionID" type="xsd:string" /></message>
+<portType name="ESB_Demo_Soap_PortType">
+  <operation name="GetSubID">
+    <input message="tns:GetSubIDRequest"/>
+    <output message="tns:GetSubIDResponse"/>
+  </operation>
+  <operation name="RegularRecharge">
+    <input message="tns:RegularRechargeRequest"/>
+    <output message="tns:RegularRechargeResponse"/>
+  </operation>
+</portType>
+<binding name="ESB_Demo_Soap_Binding" type="tns:ESB_Demo_Soap_PortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="GetSubID">
+    <soap:operation soapAction="http://esbdemo.tech/soap/service.php/GetSubID" style="rpc"/>
+    <input><soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="RegularRecharge">
+    <soap:operation soapAction="http://esbdemo.tech/soap/service.php/RegularRecharge" style="rpc"/>
+    <input><soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="ESB_Demo_Soap_">
+  <port name="ESB_Demo_Soap_Port" binding="tns:ESB_Demo_Soap_Binding">
+    <soap:address location="http://esbdemo.tech/soap/service.php"/>
+  </port>
+</service>
+</definitions>

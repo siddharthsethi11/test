@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:wsdl_1554722596829="http://www.example.org/wsdl/1554722596829" xmi:id="_Gu6AAFnIEemGjffOrByCUg" targetNamespace="http://tns.tibco.com/bw/composite/GlobeTelecom" name="GlobeTelecom" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_qNGsEFnKEemGjffOrByCUg" name="topuprecharge" promote="ComponentTopUpRecharge/topuprecharge">
+    <sca:interface.wsdl xmi:id="_qNRrMFnKEemGjffOrByCUg" interface="http://xmlns.example.com/20190408122055PLT#wsdl.interface(topuprecharge)" scaext:wsdlLocation="../Processes/globetelecom/TopUpRecharge.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_qNefgFnKEemGjffOrByCUg" name="RestService" path="/topuprecharge" docBasePath="http://localhost:7777/GlobeTelecom" docResourcePath="TopUpRecharge" basePath="/" connector="globetelecom.TopUpRecharge" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/globetelecom.TopUpRecharge-TopUpRecharge.json">
+      <operation xmi:id="_qNj_EFnKEemGjffOrByCUg" operationName="post" nickname="post-topuprecharge" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_qRdnoFnKEemGjffOrByCUg"/>
+      <advancedConfig xmi:id="_qNiJ4FnKEemGjffOrByCUg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_qNkmIFnKEemGjffOrByCUg" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_4NmOsFnzEemGjffOrByCUg" name="TopUpRechargeSOAP" promote="ComponentTopUpRechargeSOAP/TopUpRechargeSOAP">
+    <sca:interface.wsdl xmi:id="_4NmOtFnzEemGjffOrByCUg" interface="http://www.example.org/wsdl/1554722596829#wsdl.interface(Process)" scaext:wsdlLocation="../Service%20Descriptors/Recharge.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_7xpkQFnzEemGjffOrByCUg" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/10fc89ae873c4ca5a39478cdaacc6fef/SOAPServiceBinding" portTypeQName="wsdl_1554722596829:Process" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/GlobeTelecom/Service%20Descriptors/Recharge.wsdl">
+      <bindingType xmi:id="_7xqLUFnzEemGjffOrByCUg"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_BBtvsFn0EemGjffOrByCUg" endpointURI="/SOAPServiceBinding/topUpRechargeSOAP/" httpConnector="globetelecom.TopUpRecharge"/>
+      <operationConfiguration xmi:id="_7xqyYFnzEemGjffOrByCUg" operationName="operation" action="operation" actionNeeded="true">
+        <bindingType xmi:id="_7xqyYVnzEemGjffOrByCUg"/>
+        <messageConfiguration xmi:id="_7xqyYlnzEemGjffOrByCUg" messageQName="wsdl_1554722596829:operationRequest" wsdlLocation="platform:/resource/GlobeTelecom/Service%20Descriptors/Recharge.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7xqyY1nzEemGjffOrByCUg" partName="parameters" partElementName="wsdl_1554722596829:operationRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_7xqyZFnzEemGjffOrByCUg" messageQName="wsdl_1554722596829:operationResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/GlobeTelecom/Service%20Descriptors/Recharge.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_7xqyZVnzEemGjffOrByCUg" partName="parameters" partElementName="wsdl_1554722596829:operationResponse"/>
+        </messageConfiguration>
+        <context xmi:id="_7xqyZlnzEemGjffOrByCUg">
+          <inputMapping xmi:id="_7xqyZ1nzEemGjffOrByCUg"/>
+          <outputMapping xmi:id="_7xqyaFnzEemGjffOrByCUg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_7xqyaVnzEemGjffOrByCUg" bindingName="SOAPServiceBinding"/>
+  </sca:service>
+  <sca:property xmi:id="_HZKd8FnIEemGjffOrByCUg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZXSQFnIEemGjffOrByCUg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZcKwFnIEemGjffOrByCUg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZf1IFnIEemGjffOrByCUg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZkGkFnIEemGjffOrByCUg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZqNMFnIEemGjffOrByCUg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZueoFnIEemGjffOrByCUg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZxh8FnIEemGjffOrByCUg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HZ0lQFnIEemGjffOrByCUg" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_HZ4PoFnIEemGjffOrByCUg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_zxxHIFn0EemGjffOrByCUg" name="Property" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zf1AYFnlEemGjffOrByCUg" name="/RechargeSystem/HostName" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_648jAFnlEemGjffOrByCUg" name="/RechargeSystem/Port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_qM4poFnKEemGjffOrByCUg" name="ComponentTopUpRecharge" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_qM4poVnKEemGjffOrByCUg" processName="globetelecom.TopUpRecharge"/>
+    <sca:service xmi:id="_qNBMgFnKEemGjffOrByCUg" name="topuprecharge">
+      <sca:interface.wsdl xmi:id="_qNBzkFnKEemGjffOrByCUg" interface="http://xmlns.example.com/20190408122055PLT#wsdl.interface(topuprecharge)" scaext:wsdlLocation="../Processes/globetelecom/TopUpRecharge.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_4Nh9QFnzEemGjffOrByCUg" name="ComponentTopUpRechargeSOAP" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_4Nh9QVnzEemGjffOrByCUg" processName="globetelecom.TopUpRechargeSOAP"/>
+    <sca:service xmi:id="_4NlnoFnzEemGjffOrByCUg" name="TopUpRechargeSOAP">
+      <sca:interface.wsdl xmi:id="_4NlnoVnzEemGjffOrByCUg" interface="http://www.example.org/wsdl/1554722596829#wsdl.interface(Process)" scaext:wsdlLocation="../Service%20Descriptors/Recharge.wsdl"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>
